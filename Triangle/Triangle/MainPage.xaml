@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Triangle.MainPage">
+
+    <StackLayout>
+        <Entry x:Name="A" Placeholder="A = " Keyboard="Text"></Entry>
+        <Entry x:Name="B" Placeholder="B = " Keyboard="Text"></Entry>
+        <Entry x:Name="C" Placeholder="C = " Keyboard="Text"></Entry>
+        <Button Text="RUN" Clicked="OnButtonRunClicked"></Button>
+    </StackLayout>
+
+</ContentPage>
