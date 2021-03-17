@@ -17,7 +17,7 @@ namespace Triangle
 
         private void OnButtonRunClicked(object sender, EventArgs e)
         {
-            DisplayAlert("Answer", GetTriangleType(Int32.Parse(A.Text), Int32.Parse(B.Text), Int32.Parse(C.Text)), "Ok");
+            Result.Text = GetTriangleType(Int32.Parse(A.Text), Int32.Parse(B.Text), Int32.Parse(C.Text));
         }
 
         private string GetTriangleType(int a, int b, int c)

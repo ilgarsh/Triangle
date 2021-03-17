@@ -4,10 +4,16 @@
              x:Class="Triangle.MainPage">
 
     <StackLayout>
-        <Entry x:Name="A" Placeholder="A = " Keyboard="Text"></Entry>
-        <Entry x:Name="B" Placeholder="B = " Keyboard="Text"></Entry>
-        <Entry x:Name="C" Placeholder="C = " Keyboard="Text"></Entry>
-        <Button Text="RUN" Clicked="OnButtonRunClicked"></Button>
+        <Entry AutomationProperties.Name="firstSide" 
+               x:Name="A" Placeholder="A = " Keyboard="Text"></Entry>
+        <Entry AutomationProperties.Name="secondSide"
+            x:Name="B" Placeholder="B = " Keyboard="Text"></Entry>
+        <Entry AutomationProperties.Name="thirdSide"
+            x:Name="C" Placeholder="C = " Keyboard="Text"></Entry>
+        <Button AutomationProperties.Name="buttonRun"
+            Text="RUN" Clicked="OnButtonRunClicked"></Button>
+        <Entry AutomationProperties.Name="txtResult"
+               x:Name="Result"></Entry>
     </StackLayout>
 
 </ContentPage>
