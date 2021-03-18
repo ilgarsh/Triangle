@@ -17,7 +17,18 @@ namespace Triangle
 
         private void OnButtonRunClicked(object sender, EventArgs e)
         {
-            Result.Text = GetTriangleType(Int32.Parse(A.Text), Int32.Parse(B.Text), Int32.Parse(C.Text));
+            if (Int32.TryParse(this.A.Text, out int a)
+                && Int32.TryParse(this.B.Text, out int b)
+                && Int32.TryParse(this.C.Text, out int c))
+            {
+                if (a > 0 && b > 0 && c > 0)
+                {
+                    this.Result.Text = GetTriangleType(a, b, c);
+                    return;
+                }
+            }
+
+            this.Result.Text = "";
         }
 
         private string GetTriangleType(int a, int b, int c)
@@ -38,9 +49,7 @@ namespace Triangle
             {
                 return "It's Isosceles Triangle!";
             }
-
-
-
         }
+
     }
 }

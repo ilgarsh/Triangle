@@ -5,14 +5,19 @@
 
     <StackLayout>
         <Entry AutomationProperties.Name="firstSide" 
+               AutomationId="firstSide"
                x:Name="A" Placeholder="A = " Keyboard="Text"></Entry>
         <Entry AutomationProperties.Name="secondSide"
+               AutomationId="secondSide"
             x:Name="B" Placeholder="B = " Keyboard="Text"></Entry>
         <Entry AutomationProperties.Name="thirdSide"
+               AutomationId="thirdSide"
             x:Name="C" Placeholder="C = " Keyboard="Text"></Entry>
         <Button AutomationProperties.Name="buttonRun"
+                AutomationId="buttonRun"
             Text="RUN" Clicked="OnButtonRunClicked"></Button>
         <Entry AutomationProperties.Name="txtResult"
+               AutomationId="txtResult"
                x:Name="Result"></Entry>
     </StackLayout>
 
