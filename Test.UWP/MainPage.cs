@@ -18,6 +18,7 @@ namespace Test.UWP
         public const string IsoscelesText = "It's Isosceles Triangle!";
         public const string ScaleneText = "It's Scalene Triangle!";
         public const string NotTriangleText = "Triangle doesn't exist!";
+        public const string InvalidValues = "";
 
         public MainPage()
         {

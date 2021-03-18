@@ -38,18 +38,6 @@ namespace Test.UWP
         }
 
         [TestMethod]
-        public void InvalidTriangleWithZeroSides()
-        {
-            var mainPage = new MainPage();
-            mainPage.SetFirstSide("0")
-                .SetSecondSide("0")
-                .SetThirdSide("0")
-                .ClickRunButton();
-            var result = mainPage.GetResult();
-            Assert.AreEqual(MainPage.NotTriangleText, result);
-        }
-
-        [TestMethod]
         public void InvalidTriangleAndValidTriangle()
         {
             var mainPage = new MainPage();
@@ -58,7 +46,7 @@ namespace Test.UWP
                 .SetThirdSide("0")
                 .ClickRunButton();
             var result = mainPage.GetResult();
-            Assert.AreEqual(MainPage.NotTriangleText, result);
+            Assert.AreEqual(MainPage.InvalidValues, result);
 
             mainPage.ClearAllEntries();
             mainPage.SetFirstSide("1")

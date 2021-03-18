@@ -1,58 +1,38 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
+using Xamarin.UITest;
 
-namespace Test.UWP
+namespace Test.Android
 {
-    [TestClass]
-    public class InvalidIputTests
+    [TestFixture(Platform.Android)]
+    public class InvalidInputTests : BaseTest
     {
 
-        [ClassInitialize]
-        public static void Setup(TestContext context)
+        public InvalidInputTests(Platform platform) : base(platform)
         {
-            AppManager.StartApp();
         }
 
-        [ClassCleanup]
-        public static void TestCleanup()
-        {
-            AppManager.StopApp();
-        }
-
-        [TestCleanup]
-        public void ClearEntries()
-        {
-            var mainPage = new MainPage();
-            mainPage.ClearAllEntries();
-        }
-
-        [TestMethod]
+        [Test]
         public void ClickRunWithEmptyEntries()
         {
-            var mainPage = new MainPage();
-
-            mainPage.ClickRunButton();
+            this.mainPage.ClickRunButton();
             var result = mainPage.GetResult();
             Assert.AreEqual(result, MainPage.InvalidValues);
         }
 
-        [TestMethod]
+        [Test]
         public void ClickRunWithOneEmptyEntry()
         {
-            var mainPage = new MainPage();
-            var before = mainPage.GetResult();
-            mainPage.SetFirstSide("1")
+            this.mainPage.SetFirstSide("1")
                 .SetSecondSide("1")
                 .ClickRunButton();
             var result = mainPage.GetResult();
             Assert.AreEqual(result, MainPage.InvalidValues);
         }
 
-        [TestMethod]
+        [Test]
         public void StringInEntries()
         {
-            var mainPage = new MainPage();
-            var before = mainPage.GetResult();
-            mainPage.SetFirstSide("first")
+            this.mainPage.SetFirstSide("first")
                 .SetSecondSide("second")
                 .SetThirdSide("third")
                 .ClickRunButton();
@@ -60,12 +40,10 @@ namespace Test.UWP
             Assert.AreEqual(result, MainPage.InvalidValues);
         }
 
-        [TestMethod]
+        [Test]
         public void StringAndNumberInEntries()
         {
-            var mainPage = new MainPage();
-            var before = mainPage.GetResult();
-            mainPage.SetFirstSide("1f")
+            this.mainPage.SetFirstSide("1f")
                 .SetSecondSide("s2")
                 .SetThirdSide("t3h")
                 .ClickRunButton();
@@ -73,11 +51,10 @@ namespace Test.UWP
             Assert.AreEqual(result, MainPage.InvalidValues);
         }
 
-        [TestMethod]
+        [Test]
         public void NegativeNumbers()
         {
-            var mainPage = new MainPage();
-            mainPage.SetFirstSide("-1")
+            this.mainPage.SetFirstSide("-1")
                 .SetSecondSide("-1")
                 .SetThirdSide("-1")
                 .ClickRunButton();
@@ -85,11 +62,10 @@ namespace Test.UWP
             Assert.AreEqual(result, MainPage.InvalidValues);
         }
 
-        [TestMethod]
+        [Test]
         public void FloatNumbers()
         {
-            var mainPage = new MainPage();
-            mainPage.SetFirstSide("1.3")
+            this.mainPage.SetFirstSide("1.3")
                 .SetSecondSide("1.3")
                 .SetThirdSide("1.3")
                 .ClickRunButton();
@@ -97,17 +73,17 @@ namespace Test.UWP
             Assert.AreEqual(result, MainPage.InvalidValues);
         }
 
-        [TestMethod]
+        [Test]
         public void InvalidTriangleWithZeroSides()
         {
-            var mainPage = new MainPage();
-            mainPage.SetFirstSide("0")
+            this.mainPage.SetFirstSide("0")
                 .SetSecondSide("0")
                 .SetThirdSide("0")
                 .ClickRunButton();
-            var result = mainPage.GetResult();
+            var result = this.mainPage.GetResult();
             Assert.AreEqual(MainPage.InvalidValues, result);
         }
+
 
     }
 }
