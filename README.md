@@ -19,3 +19,6 @@ Written in Xamarin.Forms.
 ### Run UWP autotests
 1. Download WinAppDriver from https://github.com/Microsoft/WinAppDriver/releases
 2. Run WinAppDriver.exe
+
+### Problems
+- Support for two testing frameworks for Android and UWP (duplication of test cases)
